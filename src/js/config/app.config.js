@@ -1,9 +1,10 @@
 import authInterceptor from './auth.interceptor';
 
-function AppConfig($httpProvider, $stateProvider, $locationProvider, $urlRouterProvider) {
+function AppConfig($httpProvider, $stateProvider, $locationProvider, $urlRouterProvider, $qProvider) {
   'ngInject';
 
   $httpProvider.interceptors.push(authInterceptor);
+  $qProvider.errorOnUnhandledRejections(false);
   /*
     If you don't want hashbang routing, uncomment this line.
     Our tutorial will be using hashbang routing though :)
